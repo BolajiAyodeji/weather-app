@@ -1,6 +1,9 @@
 
+const storage = new Storage;
+const weatherLoc = storage.getLocData();
+
 const ui = new UI;
-const weather = new Weather('Lokoja', 'Nigeria');
+const weather = new Weather(weatherLoc.city, weatherLoc.country);
 
 document.addEventListener('DOMContentLoaded', getWeather)
 
@@ -14,6 +17,8 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
     ui.showAlert('Enter country name', 'alert alert-danger', 'err_f', 'err_h');
   } else {
     weather.changeLocation(city, country);
+
+    storage.setLocData(city, country);
 
     getWeather();
 
