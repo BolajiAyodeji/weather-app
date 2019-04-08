@@ -34,4 +34,29 @@ class UI {
     this.wind_dir.textContent = `Wind Direction: ${weather.wind.deg}%`;
     this.clouds.textContent = `Cloudiness: ${weather.clouds.all}%`;
   }
+
+  showAlert(msg, cN) {
+    this.clearAlert();
+
+    const div = document.createElement('div');
+    div.className = cN;
+    div.appendChild(document.createTextNode(msg));
+
+    const err_foot = document.querySelector('err-f');
+    const err_head = document.getElementById('err-h');
+
+    err_head.insertBefore(div, err_foot);
+
+    setTimeout(() => {
+      this.clearAlert();
+    }, 2000);
+  }
+
+  clearAlert() {
+    const currentAlert = document.querySelector('.alert');
+
+    if(currentAlert) {
+      currentAlert.remove();
+    }
+  }
 }

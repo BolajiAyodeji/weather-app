@@ -8,8 +8,10 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   const city = document.getElementById('city').value;
   const country = document.getElementById('country').value;
 
-  if(city === '' || country === '') {
-    alert('Incomplete fields');
+  if(city === '') {
+    ui.showAlert('Enter city name', 'alert alert-danger');
+  } else if(country === '') {
+    ui.showAlert('Enter country name', 'alert alert-danger');
   } else {
     weather.changeLocation(city, country);
 
@@ -25,6 +27,6 @@ function getWeather() {
       ui.showRes(res);
     })
     .catch(err => {
-      console.log(err);
+      ui.showAlert(err, 'alert alert-danger');
     })
 }
