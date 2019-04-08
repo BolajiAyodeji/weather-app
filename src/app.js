@@ -1,6 +1,9 @@
 
+const storage = new Storage;
+const weatherLoc = storage.getLocData();
+
 const ui = new UI;
-const weather = new Weather('Lokoja', 'Nigeria');
+const weather = new Weather(weatherLoc.city, weatherLoc.country);
 
 document.addEventListener('DOMContentLoaded', getWeather)
 
@@ -15,6 +18,8 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   } else {
     weather.changeLocation(city, country);
 
+    storage.setLocData(city, country);
+
     getWeather();
 
     $('#locModal').modal('hide');
@@ -27,6 +32,14 @@ function getWeather() {
       ui.showRes(res);
     })
     .catch(err => {
-      ui.showAlert('something went wrong, check your connection and try again.', 'alert alert-danger', 'errr_f', 'errr_h');
+      ui.showAlert('Location not found, try another location.', 'alert alert-danger', 'errr_f', 'errr_h');
+    });
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').then(function () {
+      console.log('Service Worker Registered')
     })
+  })
 }

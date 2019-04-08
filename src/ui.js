@@ -20,7 +20,7 @@ class UI {
 
     weather.weather.map((x) => {
       this.desc.textContent = x.description;
-      this.icon.setAttribute('src', `http://openweathermap.org/img/w/${x.icon}.png`);
+      this.icon.setAttribute('src', `https://openweathermap.org/img/w/${x.icon}.png`);
     })
 
     this.location.textContent = `${weather.name}, ${weather.sys.country}`;
