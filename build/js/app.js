@@ -35,14 +35,14 @@ function getWeather() {
       if (err.message === 'Not Found') {
         ui.showAlert('Location not found, try another location', 'alert alert-danger', 'errr_f', 'errr_h');
         } else {
-      ui.showAlert('Something went wrong, check your connection and try again.', 'alert alert-danger', 'errr_f', 'errr_h');
+          ui.showAlert('Something went wrong, check your connection and try again.', 'alert alert-danger', 'errr_f', 'errr_h');
         }
     });
 }
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('../sw.js').then(function () {
+    navigator.serviceWorker.register('./sw.js').then(function () {
       console.log('Service Worker Registered')
     })
   })
