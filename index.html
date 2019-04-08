@@ -17,14 +17,17 @@
     <div class="row">
       <div class="col-md-6 mx-auto text-center bg-primary mt-5 p-5 rounded">
         <h1 id="w-location"></h1>
+        <p class="" id="w-coord"></p>
         <h3 class="text-dark" id="w-desc"></h3>
-        <h3 id="w-string"></h3>
         <img id="w-icon">
         <ul id="w-details" class="list-group mt-3">
+          <li class="list-group-item" id="w-sunrise"></li>
+          <li class="list-group-item" id="w-sunset"></li>
           <li class="list-group-item" id="w-humidity"></li>
           <li class="list-group-item" id="w-temp"></li>
           <li class="list-group-item" id="w-pressure"></li>
-          <li class="list-group-item" id="w-wind"></li>
+          <li class="list-group-item" id="w-wind-speed"></li>
+          <li class="list-group-item" id="w-wind-dir"></li>
           <li class="list-group-item" id="w-clouds"></li>
         </ul>
         <hr />
@@ -41,7 +44,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="locModalLabel">Choose Location</h5>
+          <h5 class="modal-title" id="locModalLabel">Enter Location</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

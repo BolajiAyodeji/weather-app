@@ -1,3 +1,15 @@
 
-//9a7339ff0be7ada3934d6a37ced14a6a
-//http://openweathermap.org/img/w/10d.png
+const ui = new UI;
+const weather = new Weather('Lokoja', 'Nigeria');
+
+document.addEventListener('DOMContentLoaded', getWeather)
+
+function getWeather() {
+  weather.getWeather()
+    .then(res => {
+      ui.showRes(res);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
