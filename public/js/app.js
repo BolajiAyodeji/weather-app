@@ -32,7 +32,7 @@ function getWeather() {
       ui.showRes(res);
     })
     .catch(err => {
-      ui.showAlert('Something went wrong, check your connection and try again.', 'alert alert-danger', 'errr_f', 'errr_h');
+      ui.showAlert('Location not found, try another location.', 'alert alert-danger', 'errr_f', 'errr_h');
     });
 }
 
