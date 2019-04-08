@@ -35,15 +35,15 @@ class UI {
     this.clouds.textContent = `Cloudiness: ${weather.clouds.all}%`;
   }
 
-  showAlert(msg, cN) {
+  showAlert(msg, cN, err_f, err_h) {
     this.clearAlert();
 
     const div = document.createElement('div');
     div.className = cN;
     div.appendChild(document.createTextNode(msg));
 
-    const err_foot = document.querySelector('err-f');
-    const err_head = document.getElementById('err-h');
+    const err_foot = document.querySelector(`${err_f}`);
+    const err_head = document.getElementById(`${err_h}`);
 
     err_head.insertBefore(div, err_foot);
 

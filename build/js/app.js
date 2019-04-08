@@ -9,9 +9,9 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   const country = document.getElementById('country').value;
 
   if(city === '') {
-    ui.showAlert('Enter city name', 'alert alert-danger');
+    ui.showAlert('Enter city name', 'alert alert-danger', 'err_f', 'err_h');
   } else if(country === '') {
-    ui.showAlert('Enter country name', 'alert alert-danger');
+    ui.showAlert('Enter country name', 'alert alert-danger', 'err_f', 'err_h');
   } else {
     weather.changeLocation(city, country);
 
@@ -27,6 +27,6 @@ function getWeather() {
       ui.showRes(res);
     })
     .catch(err => {
-      ui.showAlert(err, 'alert alert-danger');
+      ui.showAlert('something went wrong, check your connection and try again.', 'alert alert-danger', 'errr_f', 'errr_h');
     })
 }
