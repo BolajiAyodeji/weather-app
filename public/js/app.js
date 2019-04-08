@@ -29,14 +29,14 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
 function getWeather() {
   weather.getWeather()
     .then(res => {
-      ui.showRes(res);
-    })
-    .catch(err => {
-      if (err.message === 'Not Found') {
+      if (res.responseData.message === 'Not Found') {
         ui.showAlert('Location not found, try another location', 'alert alert-danger', 'errr_f', 'errr_h');
         } else {
-          ui.showAlert('Something went wrong, check your connection and try again.', 'alert alert-danger', 'errr_f', 'errr_h');
+      ui.showRes(res);
         }
+    })
+    .catch(err => {
+      ui.showAlert('Something went wrong, check your connection and try again.', 'alert alert-danger', 'errr_f', 'errr_h');
     });
 }
 
